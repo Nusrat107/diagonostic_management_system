@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('sallaries', function (Blueprint $table) {
             $table->id();
-            $table->string('staff_id')->unique();
+           $table->string('staff_id');
             $table->string('net_salary');       
             $table->string('basic_salary')->nullable();
             $table->string('da')->nullable();
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->string('labour_welfare')->nullable();
             $table->string('fund')->nullable();
             $table->string('other_deductions')->nullable();
+            $table->string('salary_month')->nullable();
             $table->timestamps();
         });
     }

@@ -158,3 +158,5 @@ Route::get('/admin/sallary-edit/{id}', [SallaryController::class, 'sallaryEdit']
 Route::post('/admin/sallary-update/{id}', [SallaryController::class, 'sallaryUpdate']);
 Route::get('/admin/sallary-delete/{id}', [SallaryController::class, 'sallaryDelete']);
 
+Route::get('/admin/sallary-view/{id}/export-csv', [SallaryController::class, 'exportCsv']);
+Route::get('/admin/sallary-view/{id}/export-pdf', [SallaryController::class, 'exportPdf']);

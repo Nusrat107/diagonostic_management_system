@@ -40,7 +40,7 @@
                             <div class="col-sm-6">
                                 <div class="form-group">
                                     <label>Net Salary</label>
-                                    <input name="net_salary" class="form-control" type="text" placeholder="Net Salary" value="{{ old('net_salary') }}" required>
+                                    <input name="net_salary" class="form-control" type="text"  value="{{ old('net_salary') }}" required>
                                 </div>
                             </div>
 
@@ -62,7 +62,7 @@
                                 @foreach($earnings as $name => $label)
                                     <div class="form-group">
                                         <label>{{ $label }}</label>
-                                        <input name="{{ $name }}" class="form-control" type="text" placeholder="{{ $label }}" value="{{ old($name) }}">
+                                        <input name="{{ $name }}" class="form-control" type="text"  value="{{ old($name) }}">
                                     </div>
                                 @endforeach
                             </div>
@@ -86,7 +86,7 @@
                                 @foreach($deductions as $name => $label)
                                     <div class="form-group">
                                         <label>{{ $label }}</label>
-                                        <input name="{{ $name }}" class="form-control" type="text" placeholder="{{ $label }}" value="{{ old($name) }}">
+                                        <input name="{{ $name }}" class="form-control" type="text" value="{{ old($name) }}">
                                     </div>
                                 @endforeach
                             </div>

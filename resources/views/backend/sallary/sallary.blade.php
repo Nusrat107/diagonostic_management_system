@@ -36,7 +36,7 @@
                                 <tr>
                                     <td>
                                         <img class="rounded-circle" src="{{ asset('backend/assets/img/user.jpg') }}" height="28" width="28" alt=""> 
-                                        {{ $salary->employee->name ?? 'N/A' }}
+                                        {{ $salary->employee->first_name ?? 'N/A' }}
                                     </td>
                                     <td>{{ $salary->employee->employee_id ?? 'N/A' }}</td>
                                     <td>{{ $salary->employee->email ?? 'N/A' }}</td>
