@@ -1,409 +1,599 @@
 @extends('backend.master')
 
 @section('content')
-    <div class="wrapper">
 
-        <div class="main-panel">
-            <div class="main-header">
-                <div class="main-header-logo">
+    <div class="main-wrapper">
+                <div class="page-wrapper">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+							<span class="dash-widget-bg1"><i class="fa fa-stethoscope" aria-hidden="true"></i></span>
+							<div class="dash-widget-info text-right">
+								<h3>98</h3>
+								<span class="widget-title1">Doctors <i class="fa fa-check" aria-hidden="true"></i></span>
+							</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg2"><i class="fa fa-user-o"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3>1072</h3>
+                                <span class="widget-title2">Patients <i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg3"><i class="fa fa-user-md" aria-hidden="true"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3>72</h3>
+                                <span class="widget-title3">Attend <i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-lg-6 col-xl-3">
+                        <div class="dash-widget">
+                            <span class="dash-widget-bg4"><i class="fa fa-heartbeat" aria-hidden="true"></i></span>
+                            <div class="dash-widget-info text-right">
+                                <h3>618</h3>
+                                <span class="widget-title4">Pending <i class="fa fa-check" aria-hidden="true"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<div class="row">
+  <!-- Patient Total (Line Chart) -->
+  <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="card chart-card shadow-lg rounded-3 border-0">
+      <div class="card-body">
+        <div class="chart-title d-flex justify-content-between align-items-center mb-3">
+          <h4 class="chart-heading">📈 Patient Total</h4>
+          <span class="trend-text"><i class="fa fa-caret-up"></i> 15% Higher</span>
+        </div>
+        <div class="chart-container">
+          <canvas id="linegraph"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- Patients In (Bar Chart) -->
+  <div class="col-12 col-md-6 col-lg-6 col-xl-6">
+    <div class="card chart-card shadow-lg rounded-3 border-0">
+      <div class="card-body">
+        <div class="chart-title d-flex justify-content-between align-items-center mb-3">
+          <h4 class="chart-heading">🏥 Patients In</h4>
+          <div>
+            <ul class="chat-user-total list-inline m-0">
+              <li class="list-inline-item"><i class="fa fa-circle text-success"></i> ICU</li>
+              <li class="list-inline-item"><i class="fa fa-circle text-warning"></i> OPD</li>
+              <li class="list-inline-item"><i class="fa fa-circle text-danger"></i> Ward</li>
+              <li class="list-inline-item"><i class="fa fa-circle text-info"></i> Emergency</li>
+            </ul>
+          </div>
+        </div>
+        <div class="chart-container">
+          <canvas id="bargraph"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-8 col-xl-8">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title d-inline-block">Upcoming Appointments</h4> <a href="appointments.html" class="btn btn-primary float-right">View all</a>
+							</div>
+							<div class="card-body p-0">
+								<div class="table-responsive">
+									<table class="table mb-0">
+										<thead class="d-none">
+											<tr>
+												<th>Patient Name</th>
+												<th>Doctor Name</th>
+												<th>Timing</th>
+												<th class="text-right">Status</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td style="min-width: 200px;">
+													<a class="avatar" href="profile.html">B</a>
+													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
+												</td>                 
+												<td>
+													<h5 class="time-title p-0">Appointment With</h5>
+													<p>Dr. Cristina Groves</p>
+												</td>
+												<td>
+													<h5 class="time-title p-0">Timing</h5>
+													<p>7.00 PM</p>
+												</td>
+												<td class="text-right">
+													<a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+												</td>
+											</tr>
+											<tr>
+												<td style="min-width: 200px;">
+													<a class="avatar" href="profile.html">B</a>
+													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
+												</td>                 
+												<td>
+													<h5 class="time-title p-0">Appointment With</h5>
+													<p>Dr. Cristina Groves</p>
+												</td>
+												<td>
+													<h5 class="time-title p-0">Timing</h5>
+													<p>7.00 PM</p>
+												</td>
+												<td class="text-right">
+													<a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+												</td>
+											</tr>
+											<tr>
+												<td style="min-width: 200px;">
+													<a class="avatar" href="profile.html">B</a>
+													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
+												</td>                 
+												<td>
+													<h5 class="time-title p-0">Appointment With</h5>
+													<p>Dr. Cristina Groves</p>
+												</td>
+												<td>
+													<h5 class="time-title p-0">Timing</h5>
+													<p>7.00 PM</p>
+												</td>
+												<td class="text-right">
+													<a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+												</td>
+											</tr>
+											<tr>
+												<td style="min-width: 200px;">
+													<a class="avatar" href="profile.html">B</a>
+													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
+												</td>                 
+												<td>
+													<h5 class="time-title p-0">Appointment With</h5>
+													<p>Dr. Cristina Groves</p>
+												</td>
+												<td>
+													<h5 class="time-title p-0">Timing</h5>
+													<p>7.00 PM</p>
+												</td>
+												<td class="text-right">
+													<a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+												</td>
+											</tr>
+											<tr>
+												<td style="min-width: 200px;">
+													<a class="avatar" href="profile.html">B</a>
+													<h2><a href="profile.html">Bernardo Galaviz <span>New York, USA</span></a></h2>
+												</td>                 
+												<td>
+													<h5 class="time-title p-0">Appointment With</h5>
+													<p>Dr. Cristina Groves</p>
+												</td>
+												<td>
+													<h5 class="time-title p-0">Timing</h5>
+													<p>7.00 PM</p>
+												</td>
+												<td class="text-right">
+													<a href="appointments.html" class="btn btn-outline-primary take-btn">Take up</a>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="col-12 col-md-6 col-lg-4 col-xl-4">
+                        <div class="card member-panel">
+							<div class="card-header bg-white">
+								<h4 class="card-title mb-0">Doctors</h4>
+							</div>
+                            <div class="card-body">
+                                <ul class="contact-list">
+                                    <li>
+                                        <div class="contact-cont">
+                                            <div class="float-left user-img m-r-10">
+                                                <a href="profile.html" title="John Doe"><img src="{{asset('backend/assets/img/user.jpg')}}" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="contact-name text-ellipsis">John Doe</span>
+                                                <span class="contact-date">MBBS, MD</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-cont">
+                                            <div class="float-left user-img m-r-10">
+                                                <a href="profile.html" title="Richard Miles"><img src="{{asset('backend/assets/img/user.jpg')}}" alt="" class="w-40 rounded-circle"><span class="status offline"></span></a>
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="contact-name text-ellipsis">Richard Miles</span>
+                                                <span class="contact-date">MD</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-cont">
+                                            <div class="float-left user-img m-r-10">
+                                                <a href="profile.html" title="John Doe"><img src="{{asset('backend/assets/img/user.jpg')}}" alt="" class="w-40 rounded-circle"><span class="status away"></span></a>
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="contact-name text-ellipsis">John Doe</span>
+                                                <span class="contact-date">BMBS</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-cont">
+                                            <div class="float-left user-img m-r-10">
+                                                <a href="profile.html" title="Richard Miles"><img src="{{asset('backend/assets/img/user.jpg')}}" alt="" class="w-40 rounded-circle"><span class="status online"></span></a>
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="contact-name text-ellipsis">Richard Miles</span>
+                                                <span class="contact-date">MS, MD</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-cont">
+                                            <div class="float-left user-img m-r-10">
+                                                <a href="profile.html" title="John Doe"><img src="{{asset('backend/assets/img/user.jpg')}}" alt="" class="w-40 rounded-circle"><span class="status offline"></span></a>
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="contact-name text-ellipsis">John Doe</span>
+                                                <span class="contact-date">MBBS</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="contact-cont">
+                                            <div class="float-left user-img m-r-10">
+                                                <a href="profile.html" title="Richard Miles"><img src="{{asset('backend/assets/img/user.jpg')}}" alt="" class="w-40 rounded-circle"><span class="status away"></span></a>
+                                            </div>
+                                            <div class="contact-info">
+                                                <span class="contact-name text-ellipsis">Richard Miles</span>
+                                                <span class="contact-date">MBBS, MD</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-footer text-center bg-white">
+                                <a href="doctors.html" class="text-muted">View all Doctors</a>
+                            </div>
+                        </div>
+                    </div>
+				</div>
+				<div class="row">
+					<div class="col-12 col-md-6 col-lg-8 col-xl-8">
+						<div class="card">
+							<div class="card-header">
+								<h4 class="card-title d-inline-block">New Patients </h4> <a href="patients.html" class="btn btn-primary float-right">View all</a>
+							</div>
+							<div class="card-block">
+								<div class="table-responsive">
+									<table class="table mb-0 new-patient-table">
+										<tbody>
+											<tr>
+												<td>
+													<img width="28" height="28" class="rounded-circle" src="{{asset('backend/assets/img/user.jpg')}}" alt=""> 
+													<h2>John Doe</h2>
+												</td>
+												<td>Johndoe21@gmail.com</td>
+												<td>+1-202-555-0125</td>
+												<td><button class="btn btn-primary btn-primary-one float-right">Fever</button></td>
+											</tr>
+											<tr>
+												<td>
+													<img width="28" height="28" class="rounded-circle" src="{{asset('backend/assets/img/user.jpg')}}" alt=""> 
+													<h2>Richard</h2>
+												</td>
+												<td>Richard123@yahoo.com</td>
+												<td>202-555-0127</td>
+												<td><button class="btn btn-primary btn-primary-two float-right">Cancer</button></td>
+											</tr>
+											<tr>
+												<td>
+													<img width="28" height="28" class="rounded-circle" src="{{asset('backend/assets/img/user.jpg')}}" alt=""> 
+													<h2>Villiam</h2>
+												</td>
+												<td>Richard123@yahoo.com</td>
+												<td>+1-202-555-0106</td>
+												<td><button class="btn btn-primary btn-primary-three float-right">Eye</button></td>
+											</tr>
+											<tr>
+												<td>
+													<img width="28" height="28" class="rounded-circle" src="{{asset('backend/assets/img/user.jpg')}}" alt=""> 
+													<h2>Martin</h2>
+												</td>
+												<td>Richard123@yahoo.com</td>
+												<td>776-2323 89562015</td>
+												<td><button class="btn btn-primary btn-primary-four float-right">Fever</button></td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 col-lg-4 col-xl-4">
+						<div class="hospital-barchart">
+				
+						</div>
+						<div class="bar-chart">
+							<div >
+								
+								
+								
+								<h4 class="card-title d-inline-block">Hospital Management</h4>
+								
+							</div>
+							<div class="chart clearfix">
+								<div class="item">
+									<div class="bar">
+										<span class="percent">16%</span>
+										<div class="item-progress" data-percent="16">
+											<span class="title">OPD Patient</span>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="bar">
+										<span class="percent">71%</span>
+										<div class="item-progress" data-percent="71">
+											<span class="title">New Patient</span>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="bar">
+										<span class="percent">82%</span>
+										<div class="item-progress" data-percent="82">
+											<span class="title">Laboratory Test</span>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="bar">
+										<span class="percent">67%</span>
+										<div class="item-progress" data-percent="67">
+											<span class="title">Treatment</span>
+										</div>
+									</div>
+								</div>
+								<div class="item">
+									<div class="bar">
+										<span class="percent">30%</span>									
+										<div class="item-progress" data-percent="30">
+											<span class="title">Discharge</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					 </div>
+				</div>
+            </div>
+            <div class="notification-box">
+                <div class="msg-sidebar notifications msg-noti">
+                    <div class="topnav-dropdown-header">
+                        <span>Messages</span>
+                    </div>
+                    <div class="drop-scroll msg-list-scroll" id="msg_list">
+                        <ul class="list-box">
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Richard Miles </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item new-message">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">John Doe</span>
+                                            <span class="message-time">1 Aug</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Tarah Shropshire </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Mike Litorus</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Catherine Manseau </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">D</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Domenic Houston </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">B</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Buster Wigton </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">R</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Rolland Webber </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">C</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author"> Claire Mapes </span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">M</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Melita Faucher</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">J</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Jeffery Lalor</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">L</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Loren Gatlin</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="chat.html">
+                                    <div class="list-item">
+                                        <div class="list-left">
+                                            <span class="avatar">T</span>
+                                        </div>
+                                        <div class="list-body">
+                                            <span class="message-author">Tarah Shropshire</span>
+                                            <span class="message-time">12:28 AM</span>
+                                            <div class="clearfix"></div>
+                                            <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="topnav-dropdown-footer">
+                        <a href="chat.html">See all messages</a>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay" data-reff=""></div>
+   
 
 
-            <div class="container">
-                <div class="page-inner">
-
-                    <div class="row">
-                        <div class="col-sm-6 col-md-2">
-                            <div class="card card-stats card-round">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-icon">
-                                            <div class="icon-big text-center icon-primary bubble-shadow-small">
-
-                                                <i class="fa-solid fa-microscope"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col col-stats ms-3 ms-sm-0">
-                                            <div class="numbers">
-                                                <p class="card-category">Visitors</p>
-                                                <h4 class="card-title">1,294</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-2">
-                            <div class="card card-stats card-round">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-icon">
-                                            <div class="icon-big text-center icon-info bubble-shadow-small">
-                                                <i class="fa-solid fa-vial"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col col-stats ms-3 ms-sm-0">
-                                            <div class="numbers">
-                                                <p class="card-category">Subscribers</p>
-                                                <h4 class="card-title">1303</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-2">
-                            <div class="card card-stats card-round">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-icon">
-                                            <div class="icon-big text-center icon-success bubble-shadow-small">
-                                                <i class="fa-solid fa-capsules"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col col-stats ms-3 ms-sm-0">
-                                            <div class="numbers">
-                                                <p class="card-category">Sales</p>
-                                                <h4 class="card-title">$ 1,345</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-2">
-                            <div class="card card-stats card-round">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-icon">
-                                            <div class="icon-big text-center icon-secondary bubble-shadow-small">
-                                                <i class="fa-solid fa-hospital-user"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col col-stats ms-3 ms-sm-0">
-                                            <div class="numbers">
-                                                <p class="card-category">Order</p>
-                                                <h4 class="card-title">576</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-2">
-                            <div class="card card-stats card-round">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-icon">
-                                            <div class="icon-big text-center icon-danger bubble-shadow-small">
-                                                <i class="fa-solid fa-file-contract"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col col-stats ms-3 ms-sm-0">
-                                            <div class="numbers">
-                                                <p class="card-category">Order</p>
-                                                <h4 class="card-title">576</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 col-md-2">
-                            <div class="card card-stats card-round">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-icon">
-                                            <div class="icon-big text-center icon-warning bubble-shadow-small">
-                                                <i class="fa-solid fa-house-laptop"></i>
-                                            </div>
-                                        </div>
-                                        <div class="col col-stats ms-3 ms-sm-0">
-                                            <div class="numbers">
-                                                <p class="card-category">Order</p>
-                                                <h4 class="card-title">576</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                {{-- Report --}}
-                <div class="col-md-12 px-5">
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="card-title">Today's Report</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row g-3">
-                                <div class="col-md-4 col-sm-6 col-12">
-                                    <button class="btn btn-success w-100"
-                                        style="padding:12px; font-size:15px; border-radius:13px;">
-                                        <i class="fa fa-archive"></i> Default <br> tk.120
-                                    </button>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-12">
-                                    <button class="btn btn-success w-100"
-                                        style="padding:12px; font-size:15px; border-radius:13px;">
-                                        <i class="fa fa-bookmark"></i> Primary <br> tk.120
-                                    </button>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-12">
-                                    <button class="btn btn-success w-100"
-                                        style="padding:12px; font-size:15px; border-radius:13px;">
-                                        <i class="fa fa-plus"></i> Secondary <br> tk.120
-                                    </button>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-12">
-                                    <button class="btn btn-info w-100"
-                                        style="padding:12px; font-size:15px; border-radius:13px;">
-                                        <i class="fa fa-info"></i> Info <br> tk.120
-                                    </button>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-12">
-                                    <button class="btn btn-warning w-100"
-                                        style="padding:12px; font-size:15px; border-radius:13px;">
-                                        <i class="fa fa-check"></i> Success <br> tk.120
-                                    </button>
-                                </div>
-                                <div class="col-md-4 col-sm-6 col-12">
-                                    <button class="btn btn-primary w-100"
-                                        style="padding:12px; font-size:15px; border-radius:13px;">
-                                        <i class="fa fa-exclamation-circle"></i> Warning <br> tk.120
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Active user --}}
-                <div>
-                    <div class="row">
-                        <div class="col-12 px-5" style="padding: 20px;">
-                            <button class="btn btn-success"
-                                style="width: 100%; display: flex; align-items: center; justify-content: space-between; 
-                   padding: 12px 20px; font-size: 16px; border-radius: 12px;">
-
-
-                                <span style="display: flex; align-items: center; gap: 8px; font-size: 16px; color: #fff;">
-                                    <span class="btn-label" style="font-size: 22px; display: flex; align-items: center;">
-                                        <i class="fa fa-archive"></i>
-                                    </span>
-                                    <span>Default</span>
-                                </span>
-
-
-                                <span style="display: flex; align-items: center; gap: 10px; color: #fff; cursor: pointer;">
-                                    <span style="font-size: 32px; line-height: 1;">−</span>
-                                    <span style="font-size: 32px; line-height: 1;">&times;</span>
-                                </span>
-
-                            </button>
-                        </div>
-                    </div>
-
-                    {{-- Home Shedule --}}
-
-                    <div class="col-md-12 px-4">
-                        <div class="card" style="border-radius: 15px; overflow: hidden;">
-                            <div style="width: calc(100% - 10px); margin: 0 auto; display: flex; justify-content: center;">
-                                <button class="btn btn-danger"
-                                    style="padding: 10px 0; font-size: 18px; border-radius: 0; width: 100%; display: flex; justify-content: space-between; align-items: center;">
-
-                                    <span style="display: flex; align-items: center; gap: 15px; padding-left: 20px;">
-                                        <span class="btn-label" style="font-size: 22px;">
-                                            <i class="fa fa-archive"></i>
-                                        </span>
-                                        Default
-                                    </span>
-
-
-                                    <span
-                                        style="display: flex; gap: 15px; padding-right: 20px; font-size: 28px; cursor: pointer;">
-                                        <span style="transform: rotate(0deg);">−</span>
-                                        ×
-                                    </span>
-                                </button>
-                            </div>
-
-
-
-                            <!-- User Statistics -->
-                            <div class="card-body" style="padding: 40px 20px; background-color: #fff; min-height: 150px;">
-
-                            </div>
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-md-6" style="margin-bottom: 20px;">
-                                <div class="card"
-                                    style="background: #fff; color: #000; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);">
-                                    <!-- Header Blue -->
-                                    <div class="card-header d-flex justify-content-between align-items-center"
-                                        style="background: #177dff; color: #fff; border-bottom: 1px solid rgba(0,0,0,0.1); border-top-left-radius: 12px; border-top-right-radius: 12px;">
-                                        <h5 class="mb-0">User Statistics</h5>
-                                        <div>
-                                            <button class="btn btn-sm btn-light" onclick="printChart()">
-                                                <i class="fa fa-print"></i> Print
-                                            </button>
-                                            <button class="btn btn-sm btn-light" onclick="exportChart()">
-                                                <i class="fa fa-download"></i> Export
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- Body White -->
-                                    <div class="card-body" style="padding: 15px;">
-                                        <canvas id="userStatsChartSmall" height="140"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Daily Sales -->
-                            <div class="col-md-6" style="margin-bottom: 20px;">
-                                <div class="card"
-                                    style="background:#177dff; color:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,0.15);">
-                                    <!-- Header -->
-                                    <div class="card-header d-flex justify-content-between align-items-center"
-                                        style="background:transparent; border-bottom:1px solid rgba(255,255,255,0.2);">
-                                        <h5 class="mb-0 text-white">Daily Sales</h5>
-                                        <button class="btn btn-sm btn-light" onclick="exportSalesChart()">
-                                            <i class="fa fa-download"></i> Export
-                                        </button>
-                                    </div>
-                                    <!-- Body -->
-                                    <div class="card-body" style="padding:15px;">
-                                        <canvas id="dailySalesChart" height="140"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <script>
-                            document.addEventListener("DOMContentLoaded", function() {
-                                // User Statistics Chart
-                                const ctx1 = document.getElementById("userStatsChartSmall").getContext("2d");
-                                window.userStatsChart = new Chart(ctx1, {
-                                    type: "line",
-                                    data: {
-                                        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-                                        datasets: [{
-                                            label: "Users",
-                                            data: [50, 75, 60, 90, 100, 85],
-                                            borderColor: "#177dff",
-                                            backgroundColor: "rgba(23,125,255,0.2)",
-                                            fill: true,
-                                            tension: 0.4,
-                                            borderWidth: 2,
-                                            pointRadius: 4,
-                                            pointBackgroundColor: "#177dff"
-                                        }]
-                                    },
-                                    options: {
-                                        responsive: true,
-                                        plugins: {
-                                            legend: {
-                                                display: false
-                                            }
-                                        },
-                                        scales: {
-                                            x: {
-                                                grid: {
-                                                    display: false
-                                                }
-                                            },
-                                            y: {
-                                                grid: {
-                                                    color: "rgba(0,0,0,0.1)"
-                                                }
-                                            }
-                                        }
-                                    }
-                                });
-
-                                // Daily Sales Chart
-                                const ctx2 = document.getElementById("dailySalesChart").getContext("2d");
-                                window.dailySalesChart = new Chart(ctx2, {
-                                    type: "bar",
-                                    data: {
-                                        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
-                                        datasets: [{
-                                            label: "Sales",
-                                            data: [120, 150, 100, 180, 200, 170, 140],
-                                            backgroundColor: "rgba(255,255,255,0.8)",
-                                            borderColor: "#fff",
-                                            borderWidth: 1,
-                                            borderRadius: 6
-                                        }]
-                                    },
-                                    options: {
-                                        responsive: true,
-                                        plugins: {
-                                            legend: {
-                                                display: false
-                                            }
-                                        },
-                                        scales: {
-                                            x: {
-                                                ticks: {
-                                                    color: "#fff"
-                                                },
-                                                grid: {
-                                                    display: false
-                                                }
-                                            },
-                                            y: {
-                                                ticks: {
-                                                    color: "#fff"
-                                                },
-                                                grid: {
-                                                    color: "rgba(255,255,255,0.2)"
-                                                }
-                                            }
-                                        }
-                                    }
-                                });
-                            });
-
-                            // Print Function
-                            function printChart() {
-                                const canvas = document.getElementById("userStatsChartSmall");
-                                const dataUrl = canvas.toDataURL();
-                                const windowContent = '<img src="' + dataUrl + '" style="max-width:100%;">';
-                                const printWin = window.open('', '', 'width=900,height=650');
-                                printWin.document.write(windowContent);
-                                printWin.document.close();
-                                printWin.focus();
-                                printWin.print();
-                                printWin.close();
-                            }
-
-                            // Export User Statistics
-                            function exportChart() {
-                                const canvas = document.getElementById("userStatsChartSmall");
-                                const link = document.createElement("a");
-                                link.download = "user_statistics.png";
-                                link.href = canvas.toDataURL("image/png");
-                                link.click();
-                            }
-
-                            // Export Daily Sales
-                            function exportSalesChart() {
-                                const canvas = document.getElementById("dailySalesChart");
-                                const link = document.createElement("a");
-                                link.download = "daily_sales.png";
-                                link.href = canvas.toDataURL("image/png");
-                                link.click();
-                            }
-                        </script>
-                    </div>
-                    <!-- Custom template | don't include it in your project! -->
-                    <!-- End Custom template -->
-                </div>
-            @endsection
+@endsection

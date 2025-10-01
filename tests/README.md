@@ -1,1 +1,0 @@
-# diagonostic_management_system

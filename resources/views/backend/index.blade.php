@@ -107,16 +107,17 @@
 
   <div class="login-card">
     <h3><i class="fas fa-user-circle"></i> Login</h3>
-    <form action="{{ route('login') }}" method="POST">
-    @csrf
-    <div class="mb-3">
-      <input type="email" name="email" class="form-control" placeholder="Email Address" required>
-    </div>
-    <div class="mb-3">
-      <input type="password" name="password" class="form-control" placeholder="Password" required>
-    </div>
-    <button type="submit" class="btn btn-login">Login</button>
-</form>
+    <form>
+      <div class="mb-3">
+        <input type="email" class="form-control" placeholder="Email Address" required>
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" placeholder="Password" required>
+      </div>
+      <button type="submit" class="btn btn-login">Login</button>
+
+    
+    </form>
   </div>
 
   <!-- Bootstrap JS -->
