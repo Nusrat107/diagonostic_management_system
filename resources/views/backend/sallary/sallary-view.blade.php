@@ -2,57 +2,74 @@
 
 @section('content')
 <style>
-   @media print {
-        /* sidebar, navbar, overlay, buttons hide হবে */
-        .sidebar,
-        .sidebar-overlay,
-        .btn-group,
-        .navbar,
-        .top-nav,   /* যদি আপনার top navbar এই class হয় */
-        .no-print {
-            display: none !important;
-        }
-
-        /* main content full width হবে */
-        .page-wrapper, 
-        .content, 
-        .payslip-content {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-        }
+@media print {
+    /* --- সব অপ্রয়োজনীয় জিনিস hide হবে --- */
+    .navbar,
+    .header,
+    .main-header,
+    .top-header,
+    .nav,
+    .page-header,
+    .header-navbar,
+    .no-print,
+    .sidebar,
+    .sidebar-overlay,
+    .page-title,
+    .btn,
+    .btn-group,
+    .col-sm-7,
+    .col-sm-5 {
+        display: none !important;
+        visibility: hidden !important;
     }
+
+    /* Main content full page নেবে */
+    .page-wrapper,
+    .content,
+    .card-box {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        box-shadow: none !important;
+    }
+
+    body {
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+    }
+}
 </style>
+
 <div class="main-wrapper">
     <div class="page-wrapper">
         <div class="content">
 
-            {{-- Page Header --}}
-            <div class="row">
+         
+            <div class="row no-print">
                 <div class="col-sm-5 col-4">
                     <h4 class="page-title">Payslip</h4>
                 </div>
                 <div class="col-sm-7 col-8 text-right m-b-30">
-                   <div class="btn-group btn-group-sm">
-    <a href="{{ url('/admin/sallary-view/'.$payslip->id.'/export-csv') }}" class="btn btn-white">CSV</a>
-    <a href="{{ url('/admin/sallary-view/'.$payslip->id.'/export-pdf') }}" class="btn btn-white">PDF</a>
-      <button class="btn btn-white" onclick="window.print()"><i class="fa fa-print fa-lg"></i> Print</button>
-</div>
-</div>
+                    <div class="btn-group btn-group-sm">
+                        <a href="{{ url('/admin/sallary-view/'.$payslip->id.'/export-csv') }}" class="btn btn-white">CSV</a>
+                        <a href="{{ url('/admin/sallary-view/'.$payslip->id.'/export-pdf') }}" class="btn btn-white">PDF</a>
+                        <button class="btn btn-white" onclick="window.print()"><i class="fa fa-print fa-lg"></i> Print</button>
+                    </div>
                 </div>
             </div>
 
-            {{-- Payslip Card --}}
+         
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-box">
 
-                        {{-- Payslip Header --}}
-                        <h4 class="payslip-title">
+                     
+                        <h4 class="payslip-title text-center">
                             Payslip for the month of {{ date('F Y', strtotime($payslip->salary_month ?? now())) }}
                         </h4>
 
-                        {{-- Company & Employee Info --}}
+                  
                         <div class="row">
                             <div class="col-sm-6 m-b-20">
                                 <img src="{{ asset('backend/assets/img/logo-dark.png') }}" class="inv-logo" alt="">
@@ -62,19 +79,18 @@
                                 </ul>
                             </div>
                             <div class="col-sm-6 m-b-20">
-                                <div class="invoice-details">
+                                <div class="invoice-details text-right">
                                     <h3 class="text-uppercase">Payslip #{{ $payslip->id }}</h3>
                                     <ul class="list-unstyled">
                                         <li>Salary Month: 
                                             <span>{{ date('F, Y', strtotime($payslip->salary_month ?? now())) }}</span>
                                         </li>
-                                        
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        {{-- Employee Details --}}
+               
                         <div class="row">
                             <div class="col-lg-12 m-b-20">
                                 <ul class="list-unstyled">
@@ -86,10 +102,8 @@
                             </div>
                         </div>
 
-                        {{-- Earnings & Deductions --}}
                         <div class="row">
-
-                            {{-- Earnings --}}
+                        
                             <div class="col-sm-6">
                                 <h4 class="m-b-10"><strong>Earnings</strong></h4>
                                 <table class="table table-bordered">
@@ -123,7 +137,7 @@
                                 </table>
                             </div>
 
-                            {{-- Deductions --}}
+                        
                             <div class="col-sm-6">
                                 <h4 class="m-b-10"><strong>Deductions</strong></h4>
                                 <table class="table table-bordered">
@@ -156,10 +170,9 @@
                                     </tbody>
                                 </table>
                             </div>
-
                         </div>
 
-                        {{-- Net Salary --}}
+     
                         <div class="row">
                             <div class="col-sm-12">
                                 <p>
@@ -178,3 +191,4 @@
 </div>
 <div class="sidebar-overlay" data-reff=""></div>
 @endsection
+

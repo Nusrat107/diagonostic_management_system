@@ -30,6 +30,7 @@
 								<li><a href="{{url('/admin/holiday')}}">Holidays</a></li>
 							</ul>
 						</li>
+                       
                         <li class="submenu">
 							<a href="#"><i class="fa fa-money"></i> <span> Accounts </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
@@ -43,10 +44,23 @@
                         <li class="submenu">
 							<a href="#"><i class="fa fa-book"></i> <span> Payroll </span> <span class="menu-arrow"></span></a>
 							<ul style="display: none;">
-								<li><a href="{{url('/admin/sallary')}}"> Employee Salary </a></li>
+								<li><a href="{{URL('/admin/sallary')}}"> Employee Salary </a></li>
+                            </ul>
+                         </li>
+                    
+                    <li>
+                            <a href="{{url('/admin/chat')}}"><i class="fa fa-comments"></i> <span>Chat</span></a>
+                        </li>
 							
-							</ul>
-						</li>
+					<li class="submenu">
+                            <a href="#"><i class="fa fa-video-camera camera"></i> <span> Calls</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="{{url('/admin/voice-call')}}">Voice Call</a></li>
+                                <li><a href="{{url('/admin/vedio-call')}}">Video Call</a></li>
+                        
+                            </ul>
+                        </li>	
+					
                     </ul>
                 </div>
             </div>

@@ -3,6 +3,8 @@
 use App\Http\Controllers\backend\AdminAuthController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\AppointmentController;
+use App\Http\Controllers\backend\CallController;
+use App\Http\Controllers\backend\ChatController;
 use App\Http\Controllers\backend\DepertmentController;
 use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\DoctorSheduleController;
@@ -160,3 +162,11 @@ Route::get('/admin/sallary-delete/{id}', [SallaryController::class, 'sallaryDele
 
 Route::get('/admin/sallary-view/{id}/export-csv', [SallaryController::class, 'exportCsv']);
 Route::get('/admin/sallary-view/{id}/export-pdf', [SallaryController::class, 'exportPdf']);
+
+//Chat.......
+Route::get('/admin/chat', [ChatController::class, 'chat']);
+
+//call......
+Route::get('/admin/voice-call', [CallController::class, 'voiceCall']);
+Route::get('/admin/vedio-call', [CallController::class, 'vedioCall']);
+
