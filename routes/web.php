@@ -3,11 +3,14 @@
 use App\Http\Controllers\backend\AdminAuthController;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\AppointmentController;
+use App\Http\Controllers\backend\AssetsController;
+use App\Http\Controllers\backend\BlogController;
 use App\Http\Controllers\backend\CallController;
 use App\Http\Controllers\backend\ChatController;
 use App\Http\Controllers\backend\DepertmentController;
 use App\Http\Controllers\backend\DoctorController;
 use App\Http\Controllers\backend\DoctorSheduleController;
+use App\Http\Controllers\backend\EmailController;
 use App\Http\Controllers\backend\EmployeController;
 use App\Http\Controllers\backend\EmployeeController;
 use App\Http\Controllers\backend\ExpenseController;
@@ -21,6 +24,7 @@ use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\paymentsController;
 use App\Http\Controllers\backend\ProvidentController;
 use App\Http\Controllers\backend\SallaryController;
+use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\TaxesController;
 use App\Models\Depertment;
 use Illuminate\Support\Facades\Route;
@@ -170,3 +174,30 @@ Route::get('/admin/chat', [ChatController::class, 'chat']);
 Route::get('/admin/voice-call', [CallController::class, 'voiceCall']);
 Route::get('/admin/vedio-call', [CallController::class, 'vedioCall']);
 
+//Email......
+Route::get('/admin/compose-email', [EmailController::class, 'composeEmail']);
+Route::get('/admin/ixbox-email', [EmailController::class, 'inboxEmail']);
+Route::get('/admin/view-email', [EmailController::class, 'viewEmail']);
+
+//Blog.......
+Route::get('/admin/blog', [BlogController::class, 'blog']);
+Route::get('/admin/blog-add', [BlogController::class, 'blogAdd']);
+Route::post('/admin/create-blog/store', [BlogController::class, 'blogStore']);
+Route::get('/admin/blog-view/{id}', [BlogController::class, 'blogView']);
+Route::get('/admin/blog-edit/{id}', [BlogController::class, 'blogEdit']);
+Route::post('/admin/blog-update/{id}', [BlogController::class, 'blogUpdate']);
+Route::get('/admin/blog-delete/{id}', [BlogController::class, 'blogDelete']);
+
+
+//Asset.......
+Route::get('/admin/assets', [AssetsController::class, 'assets']);
+Route::get('/admin/assets-add', [AssetsController::class, 'assetsAdd']);
+Route::post('/admin/assets-blog/store', [AssetsController::class, 'assetsStore']);
+Route::get('/admin/assets-view/{id}', [AssetsController::class, 'assetsView']);
+Route::get('/admin/assets-edit/{id}', [AssetsController::class, 'assetsEdit']);
+Route::post('/admin/assets-update/{id}', [AssetsController::class, 'assetsUpdate']);
+Route::get('/admin/assets-delete/{id}', [AssetsController::class, 'assetsDelete']);
+
+//Setting.......
+Route::get('/admin/setting', [SettingController::class, 'setting']);
+Route::post('/admin/setting/store', [SettingController::class, 'settingStore']);

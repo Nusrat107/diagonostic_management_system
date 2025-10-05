@@ -57,10 +57,38 @@
                             <ul style="display: none;">
                                 <li><a href="{{url('/admin/voice-call')}}">Voice Call</a></li>
                                 <li><a href="{{url('/admin/vedio-call')}}">Video Call</a></li>
-                        
                             </ul>
-                        </li>	
-					
+                        </li>
+                        	<li class="submenu">
+                            <a href="#"><i class="fa fa-envelope"></i> <span> Email</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="{{url('/admin/compose-email')}}">Compose Mail</a></li>
+                                <li><a href="{{url('/admin/ixbox-email')}}">Inbox</a></li>
+                                <li><a href="{{url('/admin/view-email')}}">Mail View</a></li>
+                            </ul>
+                        </li>
+					 <li class="submenu">
+                            <a href="#"><i class="fa fa-commenting-o"></i> <span> Blog</span> <span class="menu-arrow"></span></a>
+                            <ul style="display: none;">
+                                <li><a href="{{url('/admin/blog')}}">Blog</a></li>
+                                <li><a href="{{url('/admin/blog-view/')}}">Blog View</a></li>
+                                <li><a href="{{url('/admin/blog-add')}}">Add Blog</a></li>
+                                <li><a href="{{url('/admin/blog-edit/')}}">Edit Blog</a></li>
+                            </ul>
+                        </li>
+                        <li>
+							<a href="{{url('/admin/assets')}}"><i class="fa fa-cube"></i> <span>Assets</span></a>
+						</li>
+                        <li class="submenu">
+							<a href="#"><i class="fa fa-flag-o"></i> <span> Reports </span> <span class="menu-arrow"></span></a>
+							<ul style="display: none;">
+								<li><a href="expense-reports.html"> Expense Report </a></li>
+								<li><a href="invoice-reports.html"> Invoice Report </a></li>
+							</ul>
+						</li>
+                        <li>
+                            <a href="{{url('/admin/setting')}}"><i class="fa fa-cog"></i> <span>Settings</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>
