@@ -17,15 +17,21 @@ use App\Http\Controllers\backend\ExpenseController;
 use App\Http\Controllers\backend\HolidayController;
 use App\Http\Controllers\backend\InvoiceController;
 use App\Http\Controllers\backend\InvoicesController;
+use App\Http\Controllers\backend\InvoiceSettingController;
 use App\Http\Controllers\backend\LeaveController;
 use App\Http\Controllers\backend\LeavesController;
+use App\Http\Controllers\backend\LocationController;
+use App\Http\Controllers\backend\PasswordSetting;
 use App\Http\Controllers\backend\PatientController;
 use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\paymentsController;
+use App\Http\Controllers\backend\ProfileController;
 use App\Http\Controllers\backend\ProvidentController;
 use App\Http\Controllers\backend\SallaryController;
+use App\Http\Controllers\backend\SellarySetting;
 use App\Http\Controllers\backend\SettingController;
 use App\Http\Controllers\backend\TaxesController;
+use App\Http\Controllers\backend\ThemeController;
 use App\Models\Depertment;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -33,6 +39,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/', [AdminAuthController::class, 'index']);
+Route::get('/admin/logout', [AdminAuthController::class, 'logOut']);
 
 Auth::routes();
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard']);
@@ -201,3 +208,27 @@ Route::get('/admin/assets-delete/{id}', [AssetsController::class, 'assetsDelete'
 //Setting.......
 Route::get('/admin/setting', [SettingController::class, 'setting']);
 Route::post('/admin/setting/store', [SettingController::class, 'settingStore']);
+
+//Location Setting.......
+Route::get('/admin/location', [LocationController::class, 'location']);
+Route::post('/admin/location/store', [LocationController::class, 'locationStore']);
+
+//Theme Setting.......
+Route::get('/admin/theme', [ThemeController::class, 'theme']);
+Route::post('/admin/theme/store', [ThemeController::class, 'themeStore']);
+
+//Invoice Setting.......
+Route::get('/admin/invoice-setting', [InvoiceSettingController::class, 'invoiceSetting']);
+Route::post('/admin/invoice-setting/store', [InvoiceSettingController::class, 'invoiceSettingStore']);
+
+//Sallary Setting.......
+Route::get('/admin/sellary-setting', [SellarySetting::class, 'sellarySetting']);
+Route::post('/admin/sellary-setting/store', [SellarySetting::class, 'sellarySettingStore']);
+
+//PasswordSetting.......
+Route::get('/admin/password-setting', [PasswordSetting::class, 'passwordSetting']);
+Route::post('/admin/password-setting/store', [PasswordSetting::class, 'passwordSettingStore']);
+
+//Profile.......
+Route::get('/admin/profile', [ProfileController::class, 'profile']);
+Route::post('/admin/profile/store', [ProfileController::class, 'profileStore']);

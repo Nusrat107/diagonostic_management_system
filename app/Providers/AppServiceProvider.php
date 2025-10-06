@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\ThemeSetting;
+use Illuminate\Contracts\View\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $theme = ThemeSetting::first() ?? new ThemeSetting();
+    view()->share('theme', $theme);
     }
 }

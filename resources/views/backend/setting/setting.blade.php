@@ -7,6 +7,7 @@
         flex-wrap: wrap;
         background: #f9f9f9;
         padding: 20px;
+        gap: 20px;
     }
 
     /* Sidebar */
@@ -16,14 +17,16 @@
         border-radius: 10px;
         box-shadow: 0 0 5px rgba(0,0,0,0.1);
         padding: 20px;
-        height: 100%;
+        height: fit-content;
         position: sticky;
         top: 100px;
+        flex-shrink: 0;
     }
 
     .settings-sidebar ul {
         list-style: none;
         padding: 0;
+        margin: 0;
     }
 
     .settings-sidebar ul li {
@@ -47,14 +50,14 @@
         color: #fff;
     }
 
-    /* Main form content */
+    /* Main content */
     .settings-content {
         flex: 1;
         background: #fff;
         border-radius: 10px;
         box-shadow: 0 0 5px rgba(0,0,0,0.08);
         padding: 30px;
-        margin-left: 30px;
+        min-width: 300px;
     }
 
     .page-title {
@@ -62,14 +65,39 @@
         text-align: center;
         margin-bottom: 25px;
     }
+
+    /* ✅ Responsive - sidebar উপরে থাকবে mobile এ */
+    @media (max-width: 991px) {
+        .settings-page {
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .settings-sidebar {
+            width: 100%;
+            position: relative;
+            top: 0;
+            order: 1; /* Sidebar উপরে থাকবে */
+        }
+
+        .settings-content {
+            order: 2; /* Main content নিচে যাবে */
+            margin-left: 0;
+            padding: 20px;
+        }
+
+        .settings-sidebar ul li a {
+            justify-content: center;
+            text-align: center;
+        }
+    }
 </style>
 
 <div class="main-wrapper">
     <div class="page-wrapper">
         <div class="content container-fluid">
-
             <div class="settings-page">
-
+                
                 <!-- Sidebar -->
                 <div class="settings-sidebar">
                     <ul>
@@ -84,15 +112,12 @@
                                 <i class="fa fa-building mr-2"></i> Company Settings
                             </a>
                         </li>
-                        <li><a href="#"><i class="fa fa-clock-o mr-2"></i> Localization</a></li>
-                        <li><a href="#"><i class="fa fa-picture-o mr-2"></i> Theme Settings</a></li>
+                        <li><a href="{{url('/admin/location')}}"><i class="fa fa-clock-o mr-2"></i> Localization</a></li>
+                        <li><a href="{{url('/admin/theme')}}"><i class="fa fa-picture-o mr-2"></i> Theme Settings</a></li>
                         <li><a href="#"><i class="fa fa-key mr-2"></i> Roles & Permissions</a></li>
-                        <li><a href="#"><i class="fa fa-envelope-o mr-2"></i> Email Settings</a></li>
-                        <li><a href="#"><i class="fa fa-pencil-square-o mr-2"></i> Invoice Settings</a></li>
-                        <li><a href="#"><i class="fa fa-money mr-2"></i> Salary Settings</a></li>
-                        <li><a href="#"><i class="fa fa-globe mr-2"></i> Notifications</a></li>
-                        <li><a href="#"><i class="fa fa-lock mr-2"></i> Change Password</a></li>
-                        <li><a href="#"><i class="fa fa-cogs mr-2"></i> Leave Type</a></li>
+                        <li><a href="{{url('/admin/invoice-setting')}}"><i class="fa fa-pencil-square-o mr-2"></i> Invoice Settings</a></li>
+                        <li><a href="{{url('/admin/sellary-setting')}}"><i class="fa fa-money mr-2"></i> Salary Settings</a></li>
+                        <li><a href="{{url('/admin/password-setting')}}"><i class="fa fa-lock mr-2"></i> Change Password</a></li>
                     </ul>
                 </div>
 
@@ -190,10 +215,11 @@
                     </form>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
+
+<div class="sidebar-overlay" data-reff=""></div>
 @endsection
 
 

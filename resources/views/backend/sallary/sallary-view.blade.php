@@ -45,7 +45,6 @@
     <div class="page-wrapper">
         <div class="content">
 
-         
             <div class="row no-print">
                 <div class="col-sm-5 col-4">
                     <h4 class="page-title">Payslip</h4>
@@ -59,25 +58,27 @@
                 </div>
             </div>
 
-         
             <div class="row">
                 <div class="col-md-12">
                     <div class="card-box">
 
-                     
                         <h4 class="payslip-title text-center">
                             Payslip for the month of {{ date('F Y', strtotime($payslip->salary_month ?? now())) }}
                         </h4>
 
-                  
                         <div class="row">
                             <div class="col-sm-6 m-b-20">
-                                <img src="{{ asset('backend/assets/img/logo-dark.png') }}" class="inv-logo" alt="">
+                                {{-- Dynamic Logo --}}
+                                @php
+                                    $invoiceLogo = \App\Models\InvoiceSetting::first()?->invoice_logo ?? asset('backend/assets/img/logo-dark.png');
+                                @endphp
+                                <img src="{{ asset($invoiceLogo) }}" class="inv-logo" alt="Invoice Logo">
                                 <ul class="list-unstyled mb-0">
                                     <li>Madinest</li>
                                     <li>Dhaka, Bangladesh</li>
                                 </ul>
                             </div>
+
                             <div class="col-sm-6 m-b-20">
                                 <div class="invoice-details text-right">
                                     <h3 class="text-uppercase">Payslip #{{ $payslip->id }}</h3>
@@ -90,7 +91,6 @@
                             </div>
                         </div>
 
-               
                         <div class="row">
                             <div class="col-lg-12 m-b-20">
                                 <ul class="list-unstyled">
@@ -103,7 +103,6 @@
                         </div>
 
                         <div class="row">
-                        
                             <div class="col-sm-6">
                                 <h4 class="m-b-10"><strong>Earnings</strong></h4>
                                 <table class="table table-bordered">
@@ -137,7 +136,6 @@
                                 </table>
                             </div>
 
-                        
                             <div class="col-sm-6">
                                 <h4 class="m-b-10"><strong>Deductions</strong></h4>
                                 <table class="table table-bordered">
@@ -172,7 +170,6 @@
                             </div>
                         </div>
 
-     
                         <div class="row">
                             <div class="col-sm-12">
                                 <p>
