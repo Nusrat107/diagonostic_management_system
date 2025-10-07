@@ -177,7 +177,7 @@
                     <div class="card">
                         <div class="card-header">
                             <h4 class="card-title d-inline-block">New Patients </h4>
-                            <a href="{{ url('/admin/patients') }}" class="btn btn-primary float-right">View all</a>
+                            <a href="{{ url('/admin/patient') }}" class="btn btn-primary float-right">View all</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
