@@ -83,7 +83,7 @@ class InvoiceController extends Controller
         return redirect('/admin/invoice');
     }
 
-    // Delete invoice
+
     public function invoiceDelete($id)
     {
         $invoice = Invoice::findOrFail($id);

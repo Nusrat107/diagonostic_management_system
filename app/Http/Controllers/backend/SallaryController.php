@@ -6,25 +6,24 @@ use App\Http\Controllers\Controller;
 use App\Models\Employe;
 use App\Models\Sallary;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\Pdf; // PDF export
+use Barryvdh\DomPDF\Facade\Pdf; 
 
 class SallaryController extends Controller
 {
-    // Show all salaries
+
     public function sallary()
     {
         $salaries = Sallary::with('employee')->latest()->get();
         return view('backend.sallary.sallary', compact('salaries'));
     }
 
-    // Show add salary form
+    
     public function sallaryAdd()
     {
         $staffs = Employe::all();
         return view('backend.sallary.sallary-add', compact('staffs'));
     }
 
-    // Store salary
     public function sallaryStore(Request $request)
     {
         $salary = new Sallary();
@@ -52,14 +51,14 @@ class SallaryController extends Controller
         return redirect('/admin/sallary');
     }
 
-    // View salary / payslip
+  
     public function sallaryView($id)
     {
         $payslip = Sallary::with('employee')->findOrFail($id);
         return view('backend.sallary.sallary-view', compact('payslip'));
     }
 
-    // Export CSV
+    
     public function exportCsv($id)
     {
         $salary = Sallary::with('employee')->findOrFail($id);
@@ -108,7 +107,7 @@ class SallaryController extends Controller
         return response()->stream($callback, 200, $headers);
     }
 
-    // Export PDF
+ 
     public function exportPdf($id)
     {
         $salary = Sallary::with('employee')->findOrFail($id);
@@ -116,7 +115,6 @@ class SallaryController extends Controller
         return $pdf->download("salary_{$salary->id}.pdf");
     }
 
-    // Edit salary form
     public function sallaryEdit($id)
     {
         $salary = Sallary::findOrFail($id);
@@ -124,7 +122,7 @@ class SallaryController extends Controller
         return view('backend.sallary.sallary-edit', compact('salary', 'staffs'));
     }
 
-    // Update salary
+
     public function sallaryUpdate(Request $request, $id)
     {
         $salary = Sallary::findOrFail($id);
@@ -152,7 +150,7 @@ class SallaryController extends Controller
         return redirect('/admin/sallary');
     }
 
-    // Delete salary
+
     public function sallaryDelete($id)
     {
         $salary = Sallary::findOrFail($id);

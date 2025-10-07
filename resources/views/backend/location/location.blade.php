@@ -116,7 +116,7 @@
                             </a>
                         </li>
                         <li><a href="{{ url('/admin/theme') }}"><i class="fa fa-picture-o mr-2"></i> Theme Settings</a></li>
-                        <li><a href="#"><i class="fa fa-key mr-2"></i> Roles & Permissions</a></li>
+                        <li><a href="{{url('/admin/role')}}"><i class="fa fa-key mr-2"></i> Roles & Permissions</a></li>
                         <li><a href="{{ url('/admin/invoice-setting') }}"><i class="fa fa-pencil-square-o mr-2"></i> Invoice Settings</a></li>
                         <li><a href="{{url('/admin/sellary-setting')}}"><i class="fa fa-money mr-2"></i> Salary Settings</a></li>
                         <li><a href="{{url('/admin/password-setting')}}"><i class="fa fa-lock mr-2"></i> Change Password</a></li>

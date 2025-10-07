@@ -14,12 +14,11 @@ class SellarySetting extends Controller
         return view('backend.sellary-setting.sellary-setting', compact('salary'));
     }
 
-    // Store or Update Salary Settings
     public function sellarySettingStore(Request $request)
     {
         $salary = SalarySetting::first() ?? new SalarySetting();
 
-        // Directly save/update without validation
+       
         $salary->da = $request->da;
         $salary->hra = $request->hra;
         $salary->pf_employee = $request->pf_employee;

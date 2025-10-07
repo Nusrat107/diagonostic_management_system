@@ -16,13 +16,13 @@ class AssetsController extends Controller
         return view('backend.assets.assets', compact('assets'));
     }
 
-    // Show add asset form
+   
     public function assetsAdd()
     {
         return view('backend.assets.assets-add');
     }
 
-    // Store new asset
+
     public function assetsStore(Request $request)
     {
         $request->validate([
@@ -50,21 +50,21 @@ class AssetsController extends Controller
         return redirect('/admin/assets');
     }
 
-    // View single asset
+ 
     public function assetsView($id)
     {
         $asset = Asset::findOrFail($id);
         return view('backend.assets.assets-view', compact('asset'));
     }
 
-    // Show edit asset form
+
     public function assetsEdit($id)
     {
         $asset = Asset::findOrFail($id);
         return view('backend.assets.assets-edit', compact('asset'));
     }
 
-    // Update asset
+
     public function assetsUpdate(Request $request, $id)
     {
         $asset = Asset::findOrFail($id);
@@ -86,7 +86,7 @@ class AssetsController extends Controller
         return redirect('/admin/assets');
     }
 
-    // Delete asset
+  
     public function assetsDelete($id)
     {
         $asset = Asset::findOrFail($id);

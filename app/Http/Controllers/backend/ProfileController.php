@@ -10,14 +10,14 @@ class ProfileController extends Controller
 
 {
 
-    // Show profile page
+
     public function profile()
     {
         $user = Auth::user();
         return view('backend.profile.profile', compact('user'));
     }
 
-    // Update profile info (without separate edit/add page)
+
     public function profileStore(Request $request)
     {
         $user = Auth::user();
@@ -26,12 +26,11 @@ class ProfileController extends Controller
             return redirect()->back();
         }
 
-        // Update user info
+
         $user->name = $request->name;
         $user->email = $request->email;
       
 
-        // Profile image upload
         if ($request->hasFile('profile_image')) {
             $file = $request->file('profile_image');
             $imageName = rand() . '.' . $file->extension();

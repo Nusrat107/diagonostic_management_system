@@ -27,6 +27,7 @@ use App\Http\Controllers\backend\PaymentController;
 use App\Http\Controllers\backend\paymentsController;
 use App\Http\Controllers\backend\ProfileController;
 use App\Http\Controllers\backend\ProvidentController;
+use App\Http\Controllers\backend\RoleController;
 use App\Http\Controllers\backend\SallaryController;
 use App\Http\Controllers\backend\SellarySetting;
 use App\Http\Controllers\backend\SettingController;
@@ -216,6 +217,16 @@ Route::post('/admin/location/store', [LocationController::class, 'locationStore'
 //Theme Setting.......
 Route::get('/admin/theme', [ThemeController::class, 'theme']);
 Route::post('/admin/theme/store', [ThemeController::class, 'themeStore']);
+
+//Role Management.......
+Route::get('/admin/role', [RoleController::class, 'role']);
+Route::get('/admin/role-add', [RoleController::class, 'roleAdd']);
+Route::post('/admin/role/store', [RoleController::class, 'roleStore']);
+Route::get('/admin/role-edit/{id}', [RoleController::class, 'roleEdit']);
+Route::post('/admin/role-update/{id}', [RoleController::class, 'roleUpdate']);
+Route::get('/admin/role-delete/{id}', [RoleController::class, 'roleDelete']);
+
+
 
 //Invoice Setting.......
 Route::get('/admin/invoice-setting', [InvoiceSettingController::class, 'invoiceSetting']);
