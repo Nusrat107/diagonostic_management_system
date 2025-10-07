@@ -9,82 +9,60 @@ use Illuminate\Http\Request;
 
 class TaxesController extends Controller
 {
-          public function provident()
+          public function taxes()
     {
-        $providents = ProvidentFund::latest()->get();
-        return view('backend.provident.provident', compact('providents'));
+        $taxes = Taxes::all();
+        return view('backend.taxes.taxes', compact('taxes'));
     }
 
-    public function providentAdd()
+    public function taxesAdd()
     {
-        return view('backend.provident.provident-add');
+        return view('backend.taxes.taxes-add');
     }
 
-    public function providentStore(Request $request)
+
+    public function taxesStore(Request $request)
     {
-        $provident = new ProvidentFund();
-        $provident->employee_id = $request->employee_id;
-        $provident->fund_type = $request->fund_type;
+        Taxes::create([
+            'name' => $request->name,
+            'percentage' => $request->percentage,
+            'status' => $request->status
+        ]);
 
-        if ($request->fund_type == 'Fixed Amount') {
-            $provident->employee_share_amount = $request->employee_share_amount;
-            $provident->organization_share_amount = $request->organization_share_amount;
-            $provident->employee_share_percentage = null;
-            $provident->organization_share_percentage = null;
-        } else {
-            $provident->employee_share_percentage = $request->employee_share_percentage;
-            $provident->organization_share_percentage = $request->organization_share_percentage;
-            $provident->employee_share_amount = null;
-            $provident->organization_share_amount = null;
-        }
-
-        $provident->description = $request->description;
-        $provident->save();
-
-        return redirect('/admin/provident');
+        return redirect('/admin/taxes');
     }
 
-    public function providentView($id)
+    public function taxesView($id)
     {
-        $provident = ProvidentFund::findOrFail($id);
-        return view('backend.provident.provident-view', compact('provident'));
+        $tax = Taxes::findOrFail($id);
+        return view('backend.taxes.taxes-view', compact('tax'));
     }
 
-    public function providentEdit($id)
+    public function taxesEdit($id)
     {
-        $provident = ProvidentFund::findOrFail($id);
-        return view('backend.provident.provident-edit', compact('provident'));
+        $tax = Taxes::findOrFail($id);
+        return view('backend.taxes.taxes-edit', compact('tax'));
     }
 
-    public function providentUpdate(Request $request, $id)
+
+    public function taxesUpdate(Request $request, $id)
     {
-        $provident = ProvidentFund::findOrFail($id);
-        $provident->employee_id = $request->employee_id;
-        $provident->fund_type = $request->fund_type;
+        $tax = Taxes::findOrFail($id);
+        $tax->update([
+            'name' => $request->name,
+            'percentage' => $request->percentage,
+            'status' => $request->status
+        ]);
 
-        if ($request->fund_type == 'Fixed Amount') {
-            $provident->employee_share_amount = $request->employee_share_amount;
-            $provident->organization_share_amount = $request->organization_share_amount;
-            $provident->employee_share_percentage = null;
-            $provident->organization_share_percentage = null;
-        } else {
-            $provident->employee_share_percentage = $request->employee_share_percentage;
-            $provident->organization_share_percentage = $request->organization_share_percentage;
-            $provident->employee_share_amount = null;
-            $provident->organization_share_amount = null;
-        }
-
-        $provident->description = $request->description;
-        $provident->save();
-
-        return redirect('/admin/provident');
+        return redirect('/admin/taxes');
     }
 
-    public function providentDelete($id)
-    {
-        $provident = ProvidentFund::findOrFail($id);
-        $provident->delete();
 
-        return redirect('/admin/provident');
+    public function taxesDelete($id)
+    {
+        $tax = Taxes::findOrFail($id);
+        $tax->delete();
+
+        return redirect('/admin/taxes');
     }
 }
