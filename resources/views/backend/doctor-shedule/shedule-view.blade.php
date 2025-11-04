@@ -19,15 +19,13 @@
                             <div class="row">
 
                                 <div class="col-sm-12 mb-3 text-center">
-                                    <img width="120" height="120" 
-                                        src="{{ asset('backend/assets/img/user.jpg') }}" 
-                                        class="rounded-circle" alt="Doctor Image">
+                                    <img width="120" height="120" src="{{ asset('backend/images/doctor/'.$schedule->doctor->image) }}" class="rounded-circle" alt="Doctor Image">
                                 </div>
 
                                 <div class="col-sm-12">
                                     <div class="form-group">
                                         <label>Doctor Name</label>
-                                        <input class="form-control" type="text" value="{{ $schedule->doctor_name }}" readonly>
+                                        <input class="form-control" type="text" value="{{ $schedule->doctor->username }}" readonly>
                                     </div>
 
                                     <div class="form-group">

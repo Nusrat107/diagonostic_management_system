@@ -19,10 +19,11 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Doctor Name</label>
-                                    <select class="form-control" name="doctor_name" required>
-                                        <option value="">Select</option>
-                                        <option value="1">Doctor Name 1</option>
-                                        <option value="2">Doctor Name 2</option>
+                                    <select class="form-control" name="doctor_id" required>
+                                        <option value="">Select Doctor</option>
+                                        @foreach ($doctors as $doctor)
+                                            <option value="{{$doctor->id}}">{{$doctor->username}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                             </div>

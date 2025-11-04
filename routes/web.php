@@ -82,6 +82,7 @@ Route::get('/admin/doctorshedule-view/{id}', [DoctorSheduleController::class, 'd
 Route::get('/admin/doctorshedule-edit/{id}', [DoctorSheduleController::class, 'doctorSheduleEdit']);
 Route::post('/admin/doctorshedule-update/{id}', [DoctorSheduleController::class, 'doctorSheduleUpdate']);
 Route::get('/admin/doctorshedule-delete/{id}', [DoctorSheduleController::class, 'doctorSheduleDelete']);
+Route::post('/admin/doctorshedule-status-update/{id}', [DoctorSheduleController::class, 'statusUpdate']);
 
 
 //Depertment.........
@@ -243,3 +244,7 @@ Route::post('/admin/password-setting/store', [PasswordSetting::class, 'passwordS
 //Profile.......
 Route::get('/admin/profile', [ProfileController::class, 'profile']);
 Route::post('/admin/profile/store', [ProfileController::class, 'profileStore']);
+
+// Role Route
+Route::get('/admin/user/create', [RoleController::class, 'userCreate']);
+Route::post('/admin/user/store', [RoleController::class, 'userStore']);

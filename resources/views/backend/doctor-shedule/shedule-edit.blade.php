@@ -23,8 +23,7 @@
                                     <label>Doctor Name</label>
                                     <select class="form-control" name="doctor_name" required>
                                         <option value="">Select</option>
-                                        <option value="1" {{ $schedule->doctor_name == 1 ? 'selected' : '' }}>Doctor Name 1</option>
-                                        <option value="2" {{ $schedule->doctor_name == 2 ? 'selected' : '' }}>Doctor Name 2</option>
+                                        <option value="">{{$schedule->doctor->username}}</option>
                                     </select>
                                 </div>
                             </div>

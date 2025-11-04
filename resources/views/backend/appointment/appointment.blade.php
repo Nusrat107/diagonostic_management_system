@@ -44,7 +44,7 @@
                                     <td>{{ \Carbon\Carbon::parse($appointment->date)->format('d M Y') }}</td>
                                     <td>{{ $appointment->time }}</td>
                                     <td>
-                                        @if($appointment->status == 'active')
+                                       @if($appointment->status == 'active')
                                             <span class="custom-badge status-green">Active</span>
                                         @else
                                             <span class="custom-badge status-red">Inactive</span>

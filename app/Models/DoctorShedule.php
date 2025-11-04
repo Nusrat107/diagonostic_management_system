@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class DoctorShedule extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+     public function doctor()
+    {
+        return $this->belongsTo(Doctor::class, 'doctor_id', 'id');
+    }
+
 }

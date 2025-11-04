@@ -7,9 +7,9 @@
                         <li class="active">
                             <a href="{{url('/admin/dashboard')}}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
                         </li>
-						 <li>
+                        <li>
                             <a href="{{url('/admin/doctor')}}"><i class="fa fa-user-md"></i> <span>Doctors</span></a>
-                        </li>        
+                        </li>      
                              <li>
                             <a href="{{url('/admin/patient')}}"><i class="fa fa-wheelchair"></i> <span>Patients</span></a>
                         </li>

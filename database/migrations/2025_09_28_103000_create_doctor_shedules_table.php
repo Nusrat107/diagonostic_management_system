@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('doctor_shedules', function (Blueprint $table) {
             $table->id();
-            $table->string('doctor_name');
+            $table->unsignedBigInteger('doctor_id')->nullable();
             $table->string('day');
             $table->time('start_time');
             $table->time('end_time');
